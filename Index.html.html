@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Nanu 🐝❤️</title>
+
+<style>
+  body {
+    margin: 0;
+    height: 100vh;
+    background:
+      linear-gradient(rgba(255,214,232,0.85), rgba(255,238,246,0.85)),
+      url("https://drive.google.com/file/d/1ahehHVPCgHDL5mfNyG2ACj62vJp_npgx/view?usp=drive_link");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+
+  .box {
+    background: white;
+    padding: 30px;
+    width: 350px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    z-index: 2;
+    position: relative;
+  }
+
+  h2 {
+    color: #ff4d6d;
+    min-height: 100px;
+  }
+
+  .signature {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #ff4d6d;
+  }
+
+  button {
+    padding: 10px 22px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 10px;
+  }
+
+  #yes {
+    background: #ff4d6d;
+    color: white;
+  }
+
+  #no {
+    background: #ccc;
+    position: absolute;
+  }
+
+  .heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp 5s linear infinite;
+  }
+
+  @keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-800px); opacity: 0; }
+  }
+
+  .confetti {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    animation: fall 3s linear infinite;
+  }
+
+  @keyframes fall {
+    from { transform: translateY(-10vh); }
+    to { transform: translateY(110vh); }
+  }
+
+  /* Rewards Section */
+  #rewards {
+    margin-top: 20px;
+    display: none;
+    animation: fadeIn 1s ease forwards;
+  }
+
+  .reward-item {
+    font-size: 28px;
+    margin: 5px;
+    display: inline-block;
+    cursor: pointer;
+    animation: pop 0.5s ease forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pop {
+    0% { transform: scale(0); }
+    70% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  /* Modal Styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 10;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+    max-width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  .modal-content img {
+    width: 100%;
+    border-radius: 15px;
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 22px;
+    cursor: pointer;
+    color: #ff4d6d;
+  }
+</style>
+</head>
+
+<body>
+
+<!-- Romantic Background Music -->
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/download/audio/2022/10/30/audio_6f6c9d47c6.mp3" type="audio/mpeg">
+</audio>
+
+<div class="box">
+  <h2 id="text">Hey Nanu 🐝❤️</h2>
+  <button id="next" onclick="nextText()">Next</button>
+
+  <div id="choices" style="display:none;">
+    <button id="yes" onclick="yesClick()">YES 😍</button>
+    <button id="no" onmouseover="moveNo()">NO 🙈</button>
+  </div>
+
+  <div id="signature" class="signature" style="display:none;">
+    — from Sunflower 🌻❤️
+  </div>
+
+  <!-- Rewards Section -->
+  <div id="rewards">
+    <div class="reward-item" onclick="showModal('chocolate')">🍫</div>
+    <div class="reward-item" onclick="showModal('rose')">🌹</div>
+    <div class="reward-item" onclick="showModal('letter')">💌</div>
+    <div class="reward-item" onclick="showModal('gift')">🎁</div>
+  </div>
+</div>
+
+<!-- Modals -->
+<div id="chocolate" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('chocolate')">&times;</span>
+    <img src="<blockquote class="imgur-embed-pub" lang="en" data-id="wdkM4Vj"><a href="https://imgur.com/wdkM4Vj">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>" alt="Heart Chocolate Box">
+    <p>Sweet Heart Chocolate Box! 🍫❤️</p>
+  </div>
+</div>
+
+<div id="rose" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('rose')">&times;</span>
+    <img src="<blockquote class="imgur-embed-pub" lang="en" data-id="egCjzYl"><a href="https://imgur.com/egCjzYl">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>" alt="Bouquet of Roses">
+    <p>Beautiful Bouquet of Roses! 🌹💖</p>
+  </div>
+</div>
+
+<div id="letter" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('letter')">&times;</span>
+    <p style="white-space: pre-wrap; font-size:16px; color:#ff4d6d;">
+Happy Valentine’s Day, Baby!  
+I just wanted to tell you that every moment with you feels like the happiest day of my life. Your smile lights up my world, and your laughter is my biggest craving. I can’t imagine a day without you, and I’m so grateful for all the little things we share—the silly fights, the cute moments, and even just being beside you every single second. You make my heart so full, my pookie, and I promise to always try to make you feel as loved and special as you make me feel by coming into my life, hehe I don't know how I got so lucky, but trust me, I'm never letting you go. You are the greatest thing that’s ever happened in my life, my forever gift. 💖
+    </p>
+  </div>
+</div>
+
+<div id="gift" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal('gift')">&times;</span>
+    <img src="<blockquote class="imgur-embed-pub" lang="en" data-id="d3W6NiA"><a href="https://imgur.com/d3W6NiA">View post on imgur.com</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>" alt="Gift Box">
+    <p>Whatever my Queen wishes for ❤️</p>
+  </div>
+</div>
+
+<script>
+  let step = 0;
+  const music = document.getElementById("music");
+
+  function nextText() {
+    if (music.paused) music.play();
+
+    const text = document.getElementById("text");
+    step++;
+
+    if (step === 1) text.innerHTML = "You buzz into my thoughts like a honey bee 🐝💛";
+    else if (step === 2) text.innerHTML = "Every moment with you feels sweeter 🍯";
+    else if (step === 3) text.innerHTML = "So I wanted to ask you something special…";
+    else if (step === 4) {
+      text.innerHTML = "Nanu 🐝❤️, will you be my Valentine?";
+      document.getElementById("next").style.display = "none";
+      document.getElementById("choices").style.display = "block";
+    }
+  }
+
+  function yesClick() {
+    document.getElementById("text").innerHTML = "YAYYY 😍❤️ Happy Valentine’s, Nanu 🐝💘";
+    document.getElementById("choices").style.display = "none";
+    document.getElementById("signature").style.display = "block";
+    launchConfetti();
+    showRewards();
+  }
+
+  function moveNo() {
+  const box = document.querySelector('.box');
+  const no = document.getElementById("no");
+
+  // Get box dimensions
+  const boxRect = box.getBoundingClientRect();
+
+  // Move NO button inside the box randomly
+  const maxX = boxRect.width - no.offsetWidth - 10; // padding from edges
+  const maxY = boxRect.height - no.offsetHeight - 10;
+
+  no.style.position = "absolute";
+  no.style.left = Math.random() * maxX + "px";
+  no.style.top = Math.random() * maxY + "px";
+}
+
+
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "0";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }, 300);
+
+  function launchConfetti() {
+    for (let i = 0; i < 150; i++) {
+      const confetti = document.createElement("div");
+      confetti.className = "confetti";
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.background =
+        ["#ff4d6d", "#ffd166", "#06d6a0", "#118ab2"][Math.floor(Math.random()*4)];
+      confetti.style.animationDuration = (Math.random() * 2 + 2) + "s";
+      document.body.appendChild(confetti);
+      setTimeout(() => confetti.remove(), 3000);
+    }
+  }
+
+  function showRewards() {
+    const rewards = document.getElementById("rewards");
+    rewards.style.display = "block";
+    const items = rewards.querySelectorAll(".reward-item");
+    items.forEach((item, index) => {
+      setTimeout(() => { item.style.animation = "pop 0.5s ease forwards"; }, index * 300);
+    });
+  }
+
+  // Modal functions
+  function showModal(id) {
+    document.getElementById(id).style.display = "flex";
+  }
+  function closeModal(id) {
+    document.getElementById(id).style.display = "none";
+  }
+</script>
+
+</body>
+</html>
